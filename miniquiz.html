@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Quiz App</title>
+  <style>
+     body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+     }
+     #quiz-container {
+        background: #fff;
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        width: 300px;
+        text-align: center;
+     }
+     button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        font-size: 14px;
+     }
+     button:hover {
+        background-color: #0056b3;
+     }
+    </style> 
+  </head> 
+  <body>
+    <div id="quiz-container">
+        <h2>Mini Quiz</h2>
+        <p id="question">Press "Next Question" to start!</p>
+        <button id="next-btn">Next Question</button>
+        <p id="score" style="margin-top: 15px;"></p>
+    </div>
+
+    <script>
+        const questions = [
+            {q: "What is the capital of France?", a: "Paris"},
+            {q:"2+2*2=?",a:"6"},
+            {q:"Which language runs in the browser?",a:"Jvascript"},
+            {q:"What color do you get when you mix red and white", a:"pink"}
+        ];
+        let current = -1;
+        let score = 0;
+
+        const questionE1 = document.getElementById('question');
+        const nextBtn = document.getElementById('next-btn');
+        const scoreE1 = document.getElementById('score');
+
+        nextBtn.addEventListener('click',() => {
+            current++;
+            if( current < questions.length) {
+                const userAnswer = prompt(questions[current].q);
+                if (userAnswer && userAnswer.trim().toLowerCase() === questions[current].a.toLowerCase()) {
+                    alert("correct!");
+                    score++;                
+                } else {
+                    alert('Wrong! The correct answer is: ${questions[current]}');
+                 }
+                 scoreE1.textContent = 'score: ${score} /${current + 1}';
+
+            }
+         else {
+            alert('Quiz finished! Your final score is ${score}/${questions.length}');
+            questionE1.textContent = "press 'next question' to restart.";
+            current = -1;
+            score = 0;
+            scoreE1.textcontent = "";            
+        }
+    });
+    
+    </script>
+  </body>
+</html>
