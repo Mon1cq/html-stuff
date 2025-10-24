@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun Facts Hub 🤩</title>
+  <style>
+    /* ===== CSS ===== */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+
+    .card {
+      background: #fff;
+      padding: 40px;
+      width: 400px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    #fact {
+      font-size: 1.2em;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 25px;
+      min-height: 70px;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #e85d50;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== HTML ===== -->
+  <div class="card">
+    <h1>🤯 Fun Facts Hub</h1>
+    <p id="fact">Click the button below to learn something new!</p>
+    <button id="newFact">Show Fun Fact</button>
+    <footer>Made with ❤️ by You</footer>
+  </div>
+
+  <script>
+    // ===== JAVASCRIPT =====
+    const facts = [
+      "Bananas are berries, but strawberries aren’t!",
+      "Honey never spoils — archaeologists found 3000-year-old edible honey.",
+      "Octopuses have three hearts.",
+      "The Eiffel Tower can grow more than 15 cm taller during hot days.",
+      "Sharks existed before trees.",
+      "A group of flamingos is called a 'flamboyance'.",
+      "Cats have fewer toes on their back paws.",
+      "Your nose can remember 50,000 different scents.",
+      "Some turtles can breathe through their butts!",
+      "Sea otters hold hands when they sleep so they don’t drift apart."
+    ];
+
+    const factText = document.getElementById("fact");
+    const newFactBtn = document.getElementById("newFact");
+
+    newFactBtn.addEventListener("click", () => {
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      factText.textContent = facts[randomIndex];
+    });
+  </script>
+</body>
+</html>

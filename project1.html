@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Flipper</title>
+
+  <style>
+    /* ===== CSS SECTION ===== */
+    body {
+      font-family: 'cursive', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: magenta;
+      transition: background-color 0.5s ease;
+    }
+
+    .container {
+      text-align: center;
+      background: tomato;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: rebeccapurple;
+    }
+
+    #color {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #007bff;
+      color: blue;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HTML SECTION ===== -->
+  <div class="container">
+    <h1>Background Color: <span id="color">#f4f4f4</span></h1>
+    <button id="changeColor">Change Color</button>
+  </div>
+
+  <!-- ===== JAVASCRIPT SECTION ===== -->
+  <script>
+    const button = document.getElementById('changeColor');
+    const colorText = document.getElementById('color');
+
+    // Function to generate a random color
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // When button is clicked
+    button.addEventListener('click', () => {
+      const newColor = getRandomColor();
+      document.body.style.backgroundColor = newColor;
+      colorText.textContent = newColor;
+      colorText.style.color = newColor;
+    });
+  </script>
+
+</body>
+</html>

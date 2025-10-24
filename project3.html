@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Counter</title>
+
+  <style>
+    /* ===== CSS SECTION ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .counter-container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      width: 300px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    #value {
+      font-size: 4em;
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 30px;
+      transition: color 0.3s ease;
+    }
+
+    button {
+      margin: 5px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .increase { background-color: #28a745; color: white; }
+    .decrease { background-color: #dc3545; color: white; }
+    .reset { background-color: #ffc107; color: black; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HTML SECTION ===== -->
+  <div class="counter-container">
+    <h1>🔢 Simple Counter❤️</h1>
+    <div id="value">0</div>
+    <button class="decrease">Decrease</button>
+    <button class="reset">Reset</button>
+    <button class="increase">Increase</button>
+  </div>
+
+  <!-- ===== JAVASCRIPT SECTION ===== -->
+  <script>
+    let count = 0;
+
+    const value = document.getElementById('value');
+    const buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const styles = e.currentTarget.classList;
+        if (styles.contains('increase')) {
+          count++;
+        } else if (styles.contains('decrease')) {
+          count--;
+        } else if (styles.contains('reset')) {
+          count = 0;
+        }
+
+        // Change color depending on count
+        if (count > 0) {
+          value.style.color = '#28a745';
+        } else if (count < 0) {
+          value.style.color = '#dc3545';
+        } else {
+          value.style.color = '#007bff';
+        }
+
+        value.textContent = count;
+      });
+    });
+  </script>
+
+</body>
+</html>
