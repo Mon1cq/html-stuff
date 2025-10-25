@@ -48,7 +48,7 @@
         const questions = [
             {q: "What is the capital of France?", a: "Paris"},
             {q:"2+2*2=?",a:"6"},
-            {q:"Which language runs in the browser?",a:"Jvascript"},
+            {q:"Which language runs in the browser?",a:"Javascript"},
             {q:"What color do you get when you mix red and white", a:"pink"}
         ];
         let current = -1;
@@ -66,17 +66,17 @@
                     alert("correct!");
                     score++;                
                 } else {
-                    alert('Wrong! The correct answer is: ${questions[current]}');
+                    alert(`Wrong! The correct answer is: ${questions[current].a}`);
                  }
-                 scoreE1.textContent = 'score: ${score} /${current + 1}';
+                 scoreE1.textContent = `score: ${score} /${current + 1}`;
 
             }
          else {
-            alert('Quiz finished! Your final score is ${score}/${questions.length}');
+            alert(`Quiz finished! Your final score is ${score}/${questions.length}`);
             questionE1.textContent = "press 'next question' to restart.";
             current = -1;
             score = 0;
-            scoreE1.textcontent = "";            
+            scoreE1.textContent = "";            
         }
     });
     
